@@ -1,24 +1,32 @@
-# README
+### Setup
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Make sure to have the **ruby 3.3.0** and **rails 7.1.3**
 
-Things you may want to cover:
+Clone the repository and execute the following command: `bundle install`
 
-* Ruby version
+### Access the app
 
-* System dependencies
+`rails server`
 
-* Configuration
+The root page will list the books by default
 
-* Database creation
+Go to http://localhost:3000/
 
-* Database initialization
+# Rake task to create books
 
-* How to run the test suite
+This task creates books for purposes of creating something to list on web pages
 
-* Services (job queues, cache servers, search engines, etc.)
+It creates 7 books: `rake books:create n=7`
 
-* Deployment instructions
+It cleans up all books: `rake books:create`
 
-* ...
+
+### Rspec tests
+
+`rspec spec/`
+
+> Note: I didn't have time to finish the POST/PATCH tests
+
+### Postman
+
+There is a taller_challenge.postman_collection.json file in the root path with all methods to test the app.

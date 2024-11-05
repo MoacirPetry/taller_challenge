@@ -2,7 +2,7 @@ namespace :books do
 
   desc "Clean all Books"
   task clean: :environment do
-    Books.delete_all
+    Book.delete_all
     puts "Done - Deleted all Books!!"
   end
 
@@ -10,12 +10,12 @@ namespace :books do
   task create: :environment do
 		if (ARGV.size == 2) && (ENV['n'] != "")
 	  	ENV['n'].to_i.times do |i|
-				title = Faker::Food.dish
-        author = Faker::Number.decimal(2)
-				publication_year = Faker::Food.description
-				Books = "Books #{i} = #{name} - #{price}"
-				puts "Registering... -> #{Books}"
-				Books.create(title: title, author: author, publication_year: publication_year)
+				title = Faker::Book.title
+        author = Faker::Book.author
+				publication_year = 10.year.ago
+				books = "Books #{i} = #{title} - #{author}"
+				puts "Registering... -> #{books}"
+				Book.create(title: title, author: author, publication_year: publication_year)
 		  end
 		else
 			puts "You need inform the quantity of Books!"
